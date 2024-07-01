@@ -8,11 +8,14 @@ import dotenv from "dotenv";
 // import messageRoute from "./routes/message.js";
 // import reviewRoute from "./routes/review.js";
 import authRoute from "./routes/auth.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 const app = express();
 
+//middleware
 app.use(express.json());
+app.use(cookieParser());
 
 mongoose.connect(process.env.MONGO_URL)
     .then(() => {
@@ -32,4 +35,4 @@ mongoose.connect(process.env.MONGO_URL)
 
 app.listen(8800, ()=>{
     console.log("backend is running")
-})
+});
