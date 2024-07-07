@@ -6,7 +6,7 @@ import gigRoute from "./routes/gig.js";
 // import orderRoute from "./routes/order.js";
 // import conversationRoute from "./routes/conversation.js";
 // import messageRoute from "./routes/message.js";
-// import reviewRoute from "./routes/review.js";
+import reviewRoute from "./routes/review.js";
 import authRoute from "./routes/auth.js";
 import cookieParser from "cookie-parser";
 import cors from "cors"
@@ -36,7 +36,7 @@ mongoose.connect(process.env.MONGO_URL)
     // app.use("/api/orders", orderRoute);
     // app.use("/api/conversations", conversationRoute);
     // app.use("/api/messages", messageRoute);
-    // app.use("/api/reviews", reviewRoute);
+    app.use("/api/reviews", reviewRoute);
 
     app.use((err, req, res, next) => {
         const errorStatus = err.status || 500;
